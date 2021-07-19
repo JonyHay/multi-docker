@@ -3,23 +3,23 @@ services:
   - docker
 
 before_install:
-  - docker build -t JonyHay/react-test -f ./client/Dockerfile.dev ./client
-  - docker build -t JonyHay/react-test -f ./client/Dockerfile.dev ./client
-  - docker build -t JonyHay/react-test -f ./client/Dockerfile.dev ./client
-  - docker build -t JonyHay/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t jonyhay/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t jonyhay/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t jonyhay/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t jonyhay/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true JonyHay/react-test npm test
+  - docker run -e CI=true jonyhay/react-test npm test
 
 after_success:
-  - docker build -t JonyHay/multi-client ./client
-  - docker build -t JonyHay/multi-nginx ./nginx
-  - docker build -t JonyHay/multi-server ./server
-  - docker build -t JonyHay/multi-worker ./worker
+  - docker build -t jonyhay/multi-client ./client
+  - docker build -t jonyhay/multi-nginx ./nginx
+  - docker build -t jonyhay/multi-server ./server
+  - docker build -t jonyhay/multi-worker ./worker
   # Login to the Docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Push images to Docker Hub
-  - docker push JonyHay/multi-client
-  - docker push JonyHay/multi-nginx
-  - docker push JonyHay/multi-server
-  - docker push JonyHay/multi-worker
+  - docker push jonyhay/multi-client
+  - docker push jonyhay/multi-nginx
+  - docker push jonyhay/multi-server
+  - docker push jonyhay/multi-worker
