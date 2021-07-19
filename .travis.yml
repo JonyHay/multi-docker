@@ -4,9 +4,6 @@ services:
 
 before_install:
   - docker build -t jonyhay/react-test -f ./client/Dockerfile.dev ./client
-  - docker build -t jonyhay/react-test -f ./client/Dockerfile.dev ./client
-  - docker build -t jonyhay/react-test -f ./client/Dockerfile.dev ./client
-  - docker build -t jonyhay/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run -e CI=true jonyhay/react-test npm test
